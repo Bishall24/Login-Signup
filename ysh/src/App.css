@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #f8f9fa, #e0e0e0);
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  gap: 15px;
+}
+
+.signup-button,
+.login-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  background-color: #0a75e8; /* Same color for all buttons */
+}
+
+.signup-button:hover,
+.login-button:hover {
+  opacity: 0.9;
+}
+
+.teacher {
+  background-color: #0a75e8;
+}
+
+.student {
+  background-color: #0a75e8;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 15px;
+  background-color: #0a75e8;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #e0e0e0;
+  opacity: 0.9;
+}
+
+.logo {
+  position: absolute;
+  top: 0%;
+  right: 10px;
+  width: 250px;
+  height: auto;
+}
