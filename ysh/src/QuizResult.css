@@ -1,0 +1,16 @@
+.quiz-result-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .quiz-result-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  h2 {
+    font-size: 32px;
+  }
+  

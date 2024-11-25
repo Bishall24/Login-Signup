@@ -40,3 +40,11 @@
     opacity: 0.9;
   }
   
+
+.description {
+  width: 80%; /* Restricts the width */
+  margin: 0 auto; /* Centers the content */
+  text-align: justify; /* Justifies the text */
+  padding: 20px; /* Adds some internal spacing */
+}
+ 
