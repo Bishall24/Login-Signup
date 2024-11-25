@@ -332,7 +332,8 @@ function StudentDashboard() {
             placeholder="Search for a precise location to find teachers..."
           />
           <button className="search-button">Search</button>
-        </div>
+        </div> 
+        
 
         <div className="user-profile-container">
           <div className="user-profile-section">

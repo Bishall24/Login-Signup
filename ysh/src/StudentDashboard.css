@@ -24,8 +24,8 @@
 
 /* Main content */
 .dashboard-content {
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
   justify-content: space-between;
   gap: 20px;
 }
@@ -37,7 +37,8 @@
   align-items: center;
   gap: 10px;
   max-width: 600px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin-left: 500px;
 }
 
 .search-bar {
@@ -72,12 +73,14 @@
 .user-profile-container {
   flex: 1;
   max-width: 400px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   text-align: center;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 550px;
+  margin-top: 60px;
 }
 
 .user-profile-section {
@@ -127,7 +130,11 @@
     flex-direction: column;
   }
 
-  .search-section,
+  .search-section{
+    max-width: 100%;
+    margin-left: 100px;
+    
+  }
   .user-profile-container {
     max-width: 100%;
   }
