@@ -1,17 +1,103 @@
+.quiz-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* background: linear-gradient(to right, #007bff, #5a99d4); */
+  color: #ab9d9d;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
 .quiz-container {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  .options button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
+  background: #d5cfcf;
+  color: #4d4a4a;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(21, 21, 21, 0.2);
+}
+
+.quiz-question {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.quiz-option {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quiz-option:hover {
+  background-color: #0056b3;
+}
+
+.quiz-result {
+  padding: 2rem;
+  background: #ffffff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.result-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.retry-button,
+.dashboard-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.retry-button:hover,
+.dashboard-button:hover {
+  background-color: #0056b3;
+}
+
+.subject-selection {
+  text-align: center;
+  padding: 20px;
+}
+
+.subject-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.subject-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.subject-button:hover {
+  background-color: #0056b3;
+}

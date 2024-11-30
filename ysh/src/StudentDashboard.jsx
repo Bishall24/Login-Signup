@@ -283,48 +283,138 @@
 
 // export default StudentDashboard;
 
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+//down is second-running one
+
+// import React, { useState } from "react";
+// import { useLocation } from "react-router-dom";
+// import "./StudentDashboard.css";
+// import { questions } from "./data/questions"; // Import your questions
+
+// function StudentDashboard() {
+//   const location = useLocation();
+//   const { userName, profilePic } = location.state || {}; // Get userName and profilePic from state
+//   const [quizStarted, setQuizStarted] = useState(false);
+//   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+//   const [score, setScore] = useState(0);
+//   const [showResult, setShowResult] = useState(false);
+
+//   const startQuiz = () => {
+//     setQuizStarted(true);
+//     setCurrentQuestionIndex(0);
+//     setScore(0);
+//     setShowResult(false);
+//   };
+
+//   const handleAnswer = (selectedOption) => {
+//     const currentQuestion = questions[currentQuestionIndex];
+//     if (selectedOption === currentQuestion.correctAnswer) {
+//       setScore(score + 1);
+//     }
+
+//     if (currentQuestionIndex + 1 < questions.length) {
+//       setCurrentQuestionIndex(currentQuestionIndex + 1);
+//     } else {
+//       setShowResult(true);
+//       setQuizStarted(false);
+//     }
+//   };
+
+//   return (
+//     <div className="dashboard-layout">
+//       <header className="dashboard-header">
+//         <h1>Welcome to Your Dashboard {userName && `, ${userName}`}</h1>
+//         <p>Find the best teachers around you!</p>
+//       </header>
+
+//       <div className="dashboard-content">
+//         <div className="search-section">
+//           <input
+//             type="text"
+//             className="search-bar"
+//             placeholder="Search for a precise location to find teachers..."
+//           />
+//           <button className="search-button">Search</button>
+//         </div> 
+        
+
+//         <div className="user-profile-container">
+//           <div className="user-profile-section">
+//             <img
+//               src={profilePic || "defaultImageUrl.jpg"}
+//               alt="Profile"
+//               className="profile-pic"
+//             />
+//             <h3 className="user-name">{userName || "Student"}</h3>
+//             <p className="user-role">Student</p>
+//             {!quizStarted && !showResult && (
+//               <button className="test-button" onClick={startQuiz}>
+//                 Test Yourself
+//               </button>
+//             )}
+//           </div>
+//         </div>
+
+//         {/* Quiz Section */}
+//         {quizStarted && (
+//           <div className="quiz-section">
+//             <h2>
+//               Question {currentQuestionIndex + 1}/{questions.length}
+//             </h2>
+//             <p>{questions[currentQuestionIndex].question}</p>
+//             <div>
+//               {questions[currentQuestionIndex].options.map((option, index) => (
+//                 <button
+//                   key={index}
+//                   className="quiz-option"
+//                   onClick={() => handleAnswer(option)}
+//                 >
+//                   {option}
+//                 </button>
+//               ))}
+//             </div>
+//           </div>
+//         )}
+
+//         {showResult && (
+//           <div className="quiz-result">
+//             <h2>Quiz Completed!</h2>
+//             <p>
+//               Your Score: {score}/{questions.length}
+//             </p>
+//             <button className="retry-button" onClick={startQuiz}>
+//               Retry
+//             </button>
+//           </div>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default StudentDashboard;
+
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./StudentDashboard.css";
-import { questions } from "./data/questions"; // Import your questions
 
 function StudentDashboard() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { userName, profilePic } = location.state || {}; // Get userName and profilePic from state
-  const [quizStarted, setQuizStarted] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [showResult, setShowResult] = useState(false);
 
   const startQuiz = () => {
-    setQuizStarted(true);
-    setCurrentQuestionIndex(0);
-    setScore(0);
-    setShowResult(false);
-  };
-
-  const handleAnswer = (selectedOption) => {
-    const currentQuestion = questions[currentQuestionIndex];
-    if (selectedOption === currentQuestion.correctAnswer) {
-      setScore(score + 1);
-    }
-
-    if (currentQuestionIndex + 1 < questions.length) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      setShowResult(true);
-      setQuizStarted(false);
-    }
+    navigate("/quiz", { state: { userName, profilePic } }); // Redirect to QuizPage with userName
   };
 
   return (
     <div className="dashboard-layout">
       <header className="dashboard-header">
-        <h1>Welcome to Your Dashboard {userName && `, ${userName}`}</h1>
+        <h1>Welcome to Your Dashboard{userName && `, ${userName}`}</h1>
         <p>Find the best teachers around you!</p>
       </header>
 
       <div className="dashboard-content">
+        {/* Search Section */}
         <div className="search-section">
           <input
             type="text"
@@ -332,9 +422,9 @@ function StudentDashboard() {
             placeholder="Search for a precise location to find teachers..."
           />
           <button className="search-button">Search</button>
-        </div> 
-        
+        </div>
 
+        {/* User Profile Section */}
         <div className="user-profile-container">
           <div className="user-profile-section">
             <img
@@ -344,52 +434,18 @@ function StudentDashboard() {
             />
             <h3 className="user-name">{userName || "Student"}</h3>
             <p className="user-role">Student</p>
-            {!quizStarted && !showResult && (
-              <button className="test-button" onClick={startQuiz}>
-                Test Yourself
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* Quiz Section */}
-        {quizStarted && (
-          <div className="quiz-section">
-            <h2>
-              Question {currentQuestionIndex + 1}/{questions.length}
-            </h2>
-            <p>{questions[currentQuestionIndex].question}</p>
-            <div>
-              {questions[currentQuestionIndex].options.map((option, index) => (
-                <button
-                  key={index}
-                  className="quiz-option"
-                  onClick={() => handleAnswer(option)}
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {showResult && (
-          <div className="quiz-result">
-            <h2>Quiz Completed!</h2>
-            <p>
-              Your Score: {score}/{questions.length}
-            </p>
-            <button className="retry-button" onClick={startQuiz}>
-              Retry
+            <button className="test-button" onClick={startQuiz}>
+              Test Yourself
             </button>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
 }
 
 export default StudentDashboard;
+
 
 
 
