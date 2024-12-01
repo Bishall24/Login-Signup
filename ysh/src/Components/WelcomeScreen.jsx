@@ -31,7 +31,7 @@ function WelcomeScreen() {
     formData.append('dob', e.target.dob.value);
     formData.append('cv', e.target.cv.value);
     formData.append('address', e.target.address.value);
-    formData.append('photo', e.target.photo.files[0]);
+    // formData.append('photo', e.target.photo.files[0]);
   
     fetch('http://localhost:3001/api/register/teacher', {
       method: 'POST',
@@ -47,6 +47,22 @@ function WelcomeScreen() {
         console.error('Error:', error);
       });
   };
+
+  const places = [
+    "Thamel", "Basantapur", "New Road", "Ason", "Baneshwor", "Boudha", "Lazimpat",
+    "Gongabu", "Kalanki", "Koteshwor", "Swayambhu", "Budhanilkantha Temple area", 
+    "Chapali", "Kapan", "Tokha Saraswati", "Mahankal", "Hattigauda", "Bansbari", 
+    "Thankot", "Matatirtha", "Purano Naikap", "Dahachok", "Satungal", "Machhegaun", 
+    "Tribhuvan Park area", "Dakshinkali Municipality", "Dakshinkali Temple area", 
+    "Pharping", "Lele", "Chhampi", "Gokarna", "Jorpati", "Nayapati", "Sundarijal", 
+    "Baluwa", "Gagal Phedi", "Mulpani", "Gothatar", "Bhadrabas", "Danchhi", 
+    "Kageshwori", "Manohara area", "Kirtipur Bazaar", "Panga", "Nagaun", 
+    "Bagh Bhairab", "Chobhar", "Tyanglaphat", "Sitapaila", "Ichangu Narayan", 
+    "Bhimdhunga", "Balaju", "Syuchatar", "Sankhu (Salinadi area)", "Bajrayogini", 
+    "Jarsing Pauwa", "Indrayani", "Pukhulachhi", "Goldhunga", "Futung", "Manamaiju", 
+    "Dharmasthali", "Kavresthali", "Tokha Saraswati", "Dhapasi", "Jhor", "Danchhi", 
+    "Gongabu", "Sukedhara", "Chabahil", "Bauddha area"
+  ];
   
   const handleStudentSubmit = (e) => {
     e.preventDefault();
@@ -261,9 +277,19 @@ function WelcomeScreen() {
             <label htmlFor="cv">Upload CV</label>
             <input type="file" id="cv" name="cv" accept=".pdf, .doc, .docx" required />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label htmlFor="address">Address</label>
             <input type="text" id="address" name="address" required />
+          </div> */}
+          <div className="form-group">
+            <label htmlFor="address">Address</label>
+            <select id="address" name="address" required>
+              {places.map((place, index) => (
+                <option key={index} value={place}>
+                  {place}
+                </option>
+              ))}
+            </select>
           </div>
           <button type="submit" className="signup-button">Submit</button>
         </form>
