@@ -21,8 +21,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import WelcomeScreen from "./Components/WelcomeScreen";
-import TeacherDashboard from "./TeacherDashboard";
-import StudentDashboard from "./StudentDashboard";
+import TeacherDashboard from "./Components/Dashboards/TeacherDashboard/TeacherDashboard";
+import StudentDashboard from "./Components/Dashboards/StudentDashboard/StudentDashboard";
 import QuizPage from "./QuizPage"; // Import your new QuizPage component
 
 function App() {
